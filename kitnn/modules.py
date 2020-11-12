@@ -2,7 +2,7 @@ from collections import OrderedDict
 
 from torch import nn
 from torch.autograd import Variable
-from torch.legacy.nn import SpatialCrossMapLRN
+# from torch.legacy.nn import SpatialCrossMapLRN
 
 
 class SelectiveSequential(nn.Module):
@@ -23,11 +23,11 @@ class SelectiveSequential(nn.Module):
         return x, selection_dict
 
 
-class LRN(nn.Module):
-    def __init__(self, size, alpha=1e-4, beta=0.75, k=1):
-        super().__init__()
-        self.lrn = SpatialCrossMapLRN(size, alpha, beta, k)
+# class LRN(nn.Module):
+#    def __init__(self, size, alpha=1e-4, beta=0.75, k=1):
+#        super().__init__()
+#        self.lrn = SpatialCrossMapLRN(size, alpha, beta, k)
 
-    def forward(self, x):
-        self.lrn.clearState()
-        return Variable(self.lrn.updateOutput(x.data))
+#    def forward(self, x):
+#        self.lrn.clearState()
+#        return Variable(self.lrn.updateOutput(x.data))
